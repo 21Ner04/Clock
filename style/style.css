@@ -134,7 +134,7 @@ justify-self: center;
     position: absolute;
     width: .27rem;
     height: 200px;
-    background-color: #091921;
+    background-color: #a13408;
     z-index: 12;
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -164,12 +164,12 @@ justify-self: center;
 .clock__text__hour, .clock__text__minutes, .clock__text__seconds {
     font-size: 4em;
     font-weight: 600;
-    color: #040572; 
+    color: black; 
 }
 
 .clock__text__ampm {
     font-size: 1em;
-    color: #040572;
+    color: black;
     font-weight: 400;
 }
 
@@ -200,7 +200,8 @@ body.dark-theme {
   box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.1), 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.clock__theme { position: absolute;
+.clock__theme { 
+position: absolute;
 top: -1rem; 
 right: -1rem; 
 display: flex; 
@@ -212,3 +213,33 @@ cursor: pointer;
 -ms-border-radius: 50%; 
 -o-border-radius: 50%;
 }
+
+     /* Стили для кнопки смены темы */
+    .theme {
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Стили для кнопки переключения темы */
+    .theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Стили для темного фона */
+    .body-black{
+    margin: 0;
+    padding: 0;
+    background-color: #111124;
+    display: flex;
+    }
+
+/* Стили для темного фона */
+    .body-white {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    display: flex;
+    }

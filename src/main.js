@@ -22,52 +22,44 @@ const dateDay = document.getElementById('date-day');
 const dateMonth = document.getElementById('date-month');
 const dateYear = document.getElementById('date-year');
 const clockText = () => {
-let date = new Date();
-let hh = date.getHours(),
-    ampm,
-    mm = date.getMinutes(),
-    ss = date.getSeconds(),
-    day = date.getDate(),
-    dayweek = date.getDay(),
-    month = date.getMonth(),
-    year = date.getFullYear();
-if (hh >= 12) {
-    hh = hh - 12;
-    ampm = 'PM';
-} else {
-    ampm = 'AM';
-}
-if (hh == 0) {
-hh = 12;
-}
-if (hh < 10) {
-hh = `0${hh}`;
-}
-textHour.innerHTML = `${hh}:`;
-if (mm < 10) {
-    mm = `0${mm}`;
-}
-textMinutes.innerHTML = `${mm}:`;
-if (ss < 10) {
-ss = `0${ss}`;
-}
-textSeconds.innerHTML = ss;
-textAmPm.innerHTML = ampm;
-
-
-let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-
-dateDay.innerHTML = day
-// dateWeek.innerHTML = `${week[dayweek]}`
-dateMonth.innerHTML = `${months[month]},`
-dateYear.innerHTML = year
+    let date = new Date();
+    let hh = date.getHours(),
+        ampm,
+        mm = date.getMinutes(),
+        ss = date.getSeconds(),
+        day = date.getDate(),
+        dayweek = date.getDay(),
+        month = date.getMonth(),
+        year = date.getFullYear();
+    if (hh >= 12) {
+        hh = hh - 12;
+        ampm = 'PM';
+    } else {
+        ampm = 'AM';
+    }
+    if (hh == 0) {
+        hh = 12;
+    }
+    if (hh < 10) {
+        hh = `0${hh}`;
+    }
+    textHour.innerHTML = `${hh}:`;
+    if (mm < 10) {
+        mm = `0${mm}`;
+    }
+    textMinutes.innerHTML = `${mm}:`;
+    if (ss < 10) {
+        ss = `0${ss}`;
+    }
+    textSeconds.innerHTML = ss;
+    textAmPm.innerHTML = ampm;
 }
 setInterval(clockText, 1000)
 
 /*==================== DARK/LIGHT THEME ====================*/
-const themeButton = document.getElementById('theme-button')
+const themeButton = document.querySelector('.theme-button')
 const darkTheme = 'dark-theme'
-const iconTheme = '☼'
+const iconTheme = '☾'
 
 // Previously selected topic (if user selected)
 const selectedTheme = localStorage.getItem('selected-theme')
@@ -83,11 +75,25 @@ document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
 themeButton.classList[selectedIcon === '☾' ? 'add' : 'remove'](iconTheme)
 }
 
-themeButton.addEventListener('click', () => {
-    // Add or remove the dark / icon theme
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    // We save the theme and the current icon that the user chose
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
+themeButton.name = 'themeLight'
+themeButton.addEventListener('click', (event) => {
+    const { body } = document
+    const allItems = body.querySelectorAll("*")
+    console.log("hello")
+    if (event.target.name === "themeLight") {
+        allItems.forEach(item => { 
+            item.style.color = "white"
+        })
+        body.classList.remove("body-white")
+        event.target.name = "themeDark"
+        body.classList.add("body-black")
+    }
+    else {
+        allItems.forEach(item => { 
+            item.style.color = "black"
+        })
+        body.classList.remove("body-black")
+        event.target.name = "themeLight"
+        body.classList.add("body-white")
+    }
 })
