@@ -8,11 +8,49 @@
 
 </head>
 <body>
-    
+
+    <!-- Код от часов -->
+    <div class="container">
     <div class="clock">
-        <div class="clock-container">
-            <div class="clock-clock"></div>
-        </div>
+        
+        <div class="clock_hour" id="hr"><i></i></div>
+        <div class="clock_minutes" id="mn"><i></i></div>
+        <div class="clock_seconds" id="sc"><i></i></div>
+
+        <span style="--i:1;"><v>|</v></span>
+        <span style="--i:2;"><v>|</v></span>
+        <span style="--i:3;"><b>3</b></span>
+        <span style="--i:4;"><v>|</v></span>
+        <span style="--i:5;"><v>|</v></span>
+        <span style="--i:6;"><b>6</b></span>
+        <span style="--i:7;"><v>|</v></span>
+        <span style="--i:8;"><v>|</v></span>
+        <span style="--i:9;"><b>9</b></span>
+        <span style="--i:10;"><v>|</v></span>
+        <span style="--i:11;"><v>|</v></span>
+        <span style="--i:12;"><b>12</b></span>
+    
+
+    <!-- Dark/light button -->
+            <div class="clock__theme">
+                <i class="theme-button">☾</i>
+            </div>
+    </div>        
+            
+    <!-- Код от эл.часов -->
+
+    <div class="clock__text">
+        <div class="clock__text__hour" id="th"></div>
+        <div class="clock__text__minutes" id="tm"></div>
+        <div class="clock__text__seconds" id="ts"></div>
+        <div class="clock__text__ampm" id="tampm"></div>
+    </div>
+
+    <div class="clock__date">
+        <span id="date__day"></span>
+        <span id="date__mounth"></span>
+        <span id="date__year"></span>
+    </div>
     </div>
 
     <script src="./src/main.js"></script>
